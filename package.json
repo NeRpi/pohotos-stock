@@ -1,0 +1,40 @@
+{
+  "name": "photos-stock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npx nodemon",
+    "typeorm": "typeorm-ts-node-esm",
+    "migration:generate": "cross-var npm run typeorm migration:generate -- src/db/migrations/$npm_config_name -d src/db/db.connector.ts",
+    "migration:create": "cross-var npm run typeorm migration:create -- ./src/db/migrations/$npm_config_name",
+    "seed:create": "cross-var npm run typeorm migration:create -- ./src/db/consts/$npm_config_name",
+    "migration:run": "npm run typeorm migration:run -- -d src/db/db.connector.ts",
+    "migration:revert": "npm run typeorm migration:revert -- -d src/db/db.connector.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.11",
+    "@types/readable-stream": "^4.0.10",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.6",
+    "cors": "^2.8.5",
+    "cross-var": "^1.1.0",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.11.3",
+    "readable-stream": "^4.5.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0",
+    "ts-node": "^10.9.2",
+    "typeorm": "^0.3.20",
+    "typescript": "^5.3.3"
+  }
+}
