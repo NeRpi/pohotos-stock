@@ -4,7 +4,7 @@ import { createServer } from "http"
 import cors from "cors"
 import * as swaggerUi from "swagger-ui-express"
 import swaggerJson from "./../swagger.json" assert { type: "json" }
-import routers from "./routers/index.ts"
+import routers from "./routers/index.js"
 
 const PORT = process.env.PORT || 5000
 const app: Express = express()

@@ -1,6 +1,6 @@
 import { Router } from "express"
 import multer from "multer"
-import photoController from "../controllers/photo.controller.ts"
+import photoController from "../controllers/photo.controller.js"
 
 const router = Router()
 const storage = multer.memoryStorage()

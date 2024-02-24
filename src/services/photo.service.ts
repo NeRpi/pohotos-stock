@@ -1,4 +1,4 @@
-import { PhotoRepo } from "../repositories/photos.repo.ts"
+import { PhotoRepo } from "../repositories/photos.repo.js"
 
 export default class PhotoService {
 	private photoRepo

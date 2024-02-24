@@ -9,8 +9,8 @@ const AppDataSource = new DataSource({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   synchronize: false,
-  entities: ["src/db/entities/*.entity.ts"],
-  migrations: ["src/db/migrations/*.ts", "src/db/consts/**/*.ts"]
+  entities: ["src/db/entities/*.entity.js"],
+  migrations: ["src/db/migrations/*.js", "src/db/consts/**/*.js"]
 });
 
 AppDataSource.initialize()

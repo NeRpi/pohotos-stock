@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import PhotoService from "../services/photo.service.ts"
+import PhotoService from "../services/photo.service.js"
 import { Readable } from "readable-stream"
 
 class PhotoController {

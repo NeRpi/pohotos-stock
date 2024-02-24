@@ -1,5 +1,5 @@
 import { Router } from "express"
-import photoRouter from "./photo.router.ts"
+import photoRouter from "./photo.router.js"
 
 const router = Router()
 

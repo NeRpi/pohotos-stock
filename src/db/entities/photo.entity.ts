@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany } from "typeorm";
-import { BaseEntity } from "./base.entity.ts";
+import { BaseEntity } from "./base.entity.js";
 
 @Entity("photos")
 export abstract class PhotoEntity extends BaseEntity {

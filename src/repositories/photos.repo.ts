@@ -1,5 +1,5 @@
-import { PhotoEntity } from "../db/entities/photo.entity.ts"
-import dbConnector from "../db/db.connector.ts"
+import { PhotoEntity } from "../db/entities/photo.entity.js"
+import dbConnector from "../db/db.connector.js"
 
 export const PhotoRepo = dbConnector.getRepository(PhotoEntity).extend({
 	async get() {
