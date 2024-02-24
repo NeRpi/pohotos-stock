@@ -1,5 +1,10 @@
 import { DataSource } from "typeorm";
+import path from 'path';
+import { fileURLToPath } from 'url';
 import "dotenv/config";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const AppDataSource = new DataSource({
   type: "postgres",
@@ -9,8 +14,8 @@ const AppDataSource = new DataSource({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   synchronize: false,
-  entities: ["src/db/entities/*.entity.js"],
-  migrations: ["src/db/migrations/*.js", "src/db/consts/**/*.js"]
+  entities: [__dirname + "/entities/*.entity.{js,ts}"],
+  migrations: [__dirname + "/migrations/*.{js,ts}", __dirname + "/consts/**/*.{js,ts}"]
 });
 
 AppDataSource.initialize()
