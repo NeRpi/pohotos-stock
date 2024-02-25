@@ -4,7 +4,7 @@ import dbConnector from "../db/db.connector.js"
 export const PhotoRepo = dbConnector.getRepository(PhotoEntity).extend({
 	async get() {
 		try {
-			return await this.find()
+			return await this.find({ select: ["id", "name", "created_at", "updated_at"] })
 		} catch (e) {
 			console.log(`Failed get all photos on repo: ${e}`)
 		}
