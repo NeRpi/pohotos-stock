@@ -16,6 +16,7 @@ class PhotoController {
 			const encoded = (await this.photoService.get())?.map((image) => image.img.toString("base64"))
 			res.status(200).json({ success: true, data: { imgs: encoded } })
 		} catch (e) {
+			res.status(404).json({ success: false, message: `${e}` })
 			console.log(`Failed get all photos on controller: ${e}`)
 		}
 	}
@@ -54,7 +55,10 @@ class PhotoController {
 
 	update = async (req: Request, res: Response) => {
 		try {
-			const { params: { id }, file } = req
+			const {
+				params: { id },
+				file
+			} = req
 			if (!file) throw Error("No find photo by select id")
 			await this.photoService.update(id, file.originalname, file.buffer)
 			res.status(204).json({ success: true, message: "Photo is update" })
@@ -69,6 +73,7 @@ class PhotoController {
 			const { id } = req.params
 			res.status(204).json(await this.photoService.deleteById(id))
 		} catch (e) {
+			res.status(404).json({ success: false, message: `${e}` })
 			console.log(`Failed delete one photo on controller: ${e}`)
 		}
 	}
